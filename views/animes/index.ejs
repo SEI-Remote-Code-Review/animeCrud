@@ -1,0 +1,14 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Anime List</h1>
+  <h2>Check out these Anime</h2>
+	<ul>
+  <% animes.forEach(anime => { %>
+      <li><%= anime.mainTitle %> </li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
