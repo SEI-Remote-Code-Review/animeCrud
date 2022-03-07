@@ -10,7 +10,7 @@
   <p><%= anime.description %> </p>
 
   <%# User Identification for edits %>
-  <%# if (anime.owner.equals(user?.profile._id)) { %>
+  <% if (anime.owner.equals(user?.profile._id)) { %>
     <form action="/animes/<%= anime._id %>/edit" method="GET">
       <button class="btn" type="submit">Edit this Anime</button>
     </form>
@@ -20,7 +20,7 @@
       <button class="btn" type="submit">Delete this Anime</button>
     </form>
     <%# DELETE code end %> 
-  <%# } %>
+  <% } %>
 </section>
 
 <%- include('../partials/footer') %>

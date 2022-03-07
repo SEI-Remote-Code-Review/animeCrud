@@ -10,7 +10,7 @@
   <p><%= anime.description %> </p>
 
   
-  <form action ="/animes" method="POST">
+  <form action ="/animes/<%= anime._id %>?_method=PUT" method="POST">
     <label>
       Title:
       <input type="text" name="mainTitle" value="<%= anime.mainTitle %>">

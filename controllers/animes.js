@@ -60,7 +60,7 @@ function update(req,res){
   
   .then(anime=>{
     if(anime.owner.equals(req.user.profile._id)){
-      anime.updateOne(req.body, {new:true})
+      anime.update(req.body, {new:true})
       .then(() => {
         res.redirect(`/animes/${anime._id}`)
       })
