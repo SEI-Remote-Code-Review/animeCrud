@@ -1,0 +1,48 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	<h1>Edit Page</h1>
+  <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
+  <h1><%= anime.mainTitle %></h1>
+  <h5>Studio: <%= anime.studio %> </h2>
+  <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
+  <p><%= anime.description %> </p>
+
+  
+  <form action ="/animes" method="POST">
+    <label>
+      Title:
+      <input type="text" name="mainTitle" value="<%= anime.mainTitle %>">
+    </label>
+    <label>
+      Image URL:
+      <input type="text" name="imageUrl" value="<%= anime.imageURL %>">
+    </label>
+    <label>
+      Studio:
+      <input type="text" name="studio" value="<%= anime.studio %>">
+    </label>
+    <label>
+      Year Aired:
+      <input type="number" name="yearAired" value="<%= anime.yearAired %>">
+    </label>
+    <label>
+      Season Aired:
+      <select name="seasonAired">
+        <option value="Winter" selected>Winter</option>
+        <option value="Spring">Spring</option>
+        <option value="Summer">Summer</option>
+        <option value="Fall">Fall</option>
+      </select>
+    </label>
+    <label>
+      <textarea name="description" rows="10" cols="30" value="<%= anime.description %>"></textarea>
+    </label>
+    <button type="submit">Edit Anime</button>
+  </form> 
+
+
+</section>
+
+<%- include('../partials/footer') %>

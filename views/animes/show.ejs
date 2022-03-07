@@ -1,0 +1,21 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	<p>Created by <%= anime.postBy.name %>...</p>
+  <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
+  <h1><%= anime.mainTitle %></h1>
+  <h5>Studio: <%= anime.studio %> </h2>
+  <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
+  <p><%= anime.description %> </p>
+
+  <%# User Identification for edits %>
+  <% if (anime.postBy.equals(user?.profile_.id)) {%>
+    <form action="/animes/<%= anime._id %>/edit" method="GET">
+    <button class="btn" type="submit">Edit this Page</button>
+  </form>
+  <% } %> 
+
+</section>
+
+<%- include('../partials/footer') %>
