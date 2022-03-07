@@ -28,7 +28,7 @@ function create(req,res){
 
 function show(req,res){
   Anime.findById(req.params.id)
-  .populate('postBy')
+  .populate('owner')
   .then(anime=>{
     res.render('animes/show', {
       anime,
@@ -57,11 +57,30 @@ function edit(req,res){
 
 function update(req,res){
   Anime.findById(req.params.id)
+  
   .then(anime=>{
-    if(anime.postBy.equals(req.user.profile._id)){
+    if(anime.owner.equals(req.user.profile._id)){
       anime.updateOne(req.body, {new:true})
       .then(() => {
         res.redirect(`/animes/${anime._id}`)
+      })
+    } else{
+      throw new Error ('not authorized')
+    }
+  })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/animes')
+  })
+}
+
+function deleteAnime(req,res){
+  Anime.findById(req.params.id)
+  .then(anime=>{
+    if(anime.owner.equals(req.user.profile._id)){
+      anime.delete()
+      .then(() => {
+        res.redirect('/animes')
       })
     } else{
       throw new Error ('not authorized')
@@ -79,5 +98,7 @@ export {
   show,
   edit,
   update,
+  deleteAnime as delete,
+
 
 }

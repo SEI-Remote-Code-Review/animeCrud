@@ -9,7 +9,7 @@ const animeSchema = new Schema({
   studio:String,
   yearAired:Number,
   seasonAired:{type:String, enum:['Winter','Spring','Summer','Fall'], default:'Winter'},
-  postBy:[{type: Schema.Types.ObjectId, ref:'Profile'}],
+  owner:{type: Schema.Types.ObjectId, ref:'Profile'},
   reviews: [{type:Schema.Types.ObjectId, ref:'Review'}],
   //numEpisodes:Number,
   description:String,

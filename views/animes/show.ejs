@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<p>Created by <%= anime.postBy.name %>...</p>
+	<p>Created by <%= anime.owner.name %>...</p>
   <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
   <h1><%= anime.mainTitle %></h1>
   <h5>Studio: <%= anime.studio %> </h2>
@@ -10,12 +10,17 @@
   <p><%= anime.description %> </p>
 
   <%# User Identification for edits %>
-  <% if (anime.postBy.equals(user?.profile_.id)) {%>
+  <%# if (anime.owner.equals(user?.profile._id)) { %>
     <form action="/animes/<%= anime._id %>/edit" method="GET">
-    <button class="btn" type="submit">Edit this Page</button>
-  </form>
-  <% } %> 
-
+      <button class="btn" type="submit">Edit this Anime</button>
+    </form>
+    <%# EDIT code end %> 
+    <%# DELETE code begin %>
+    <form action="/animes/<%= anime._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete this Anime</button>
+    </form>
+    <%# DELETE code end %> 
+  <%# } %>
 </section>
 
 <%- include('../partials/footer') %>

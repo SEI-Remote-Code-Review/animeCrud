@@ -12,7 +12,7 @@
       </label>
       <label>
         Image URL:
-        <input type="text" name="imageUrl">
+        <input type="text" name="imageURL">
       </label>
       <label>
         Studio:
@@ -38,19 +38,23 @@
     </form> 
     <% } %> 
   <h2>Check out these Anime</h2>
-	
+	<div class="row">
   <% animes.forEach(anime => { %>
-    <div class="card" style="width: 18rem;">
-      <img src="<%= anime.imageURL %>"  class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
-        <p class="card-text"><%= anime.description %>  </p>
-        <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
-        <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
+    <div class=""col-sm-6>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= anime.imageURL %>"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
+          <p class="card-text"><%= anime.description %>  </p>
+          <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
+          <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
+        </div>
       </div>
     </div>
   <% }) %>
+  </div>
+  
   
 </section>
 

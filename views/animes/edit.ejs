@@ -17,7 +17,7 @@
     </label>
     <label>
       Image URL:
-      <input type="text" name="imageUrl" value="<%= anime.imageURL %>">
+      <input type="text" name="imageURL" value="<%= anime.imageURL %>">
     </label>
     <label>
       Studio:
@@ -37,7 +37,8 @@
       </select>
     </label>
     <label>
-      <textarea name="description" rows="10" cols="30" value="<%= anime.description %>"></textarea>
+      <textarea type="text" name="description" rows="10" cols="30"><%= anime.description %>
+      </textarea>
     </label>
     <button type="submit">Edit Anime</button>
   </form> 
