@@ -2,6 +2,14 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
+const reviewSchema = new Schema ({
+  score:{type:Number, enum:[1,2,3,4,5], default:3},
+  pageReviews:String,
+  owner:{type: Schema.Types.ObjectId, ref:'Profile'},
+},{
+  timestamps:true
+})
+
 const animeSchema = new Schema({
   mainTitle:String,
   imageURL:String,
@@ -10,9 +18,10 @@ const animeSchema = new Schema({
   yearAired:Number,
   seasonAired:{type:String, enum:['Winter','Spring','Summer','Fall'], default:'Winter'},
   owner:{type: Schema.Types.ObjectId, ref:'Profile'},
-  reviews: [{type:Schema.Types.ObjectId, ref:'Review'}],
+  reviews: [reviewSchema],
   //numEpisodes:Number,
   description:String,
+
 },{
   timestamps:true
 })
