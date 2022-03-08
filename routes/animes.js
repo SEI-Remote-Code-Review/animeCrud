@@ -21,6 +21,8 @@ router.put('/:id', isLoggedIn, animesCtrl.update)
 
 router.delete('/:id', isLoggedIn, animesCtrl.delete)
 
+router.delete('/:id/reviews/:reviewId', animesCtrl.deleteReview)
+
 export {
   router
 }

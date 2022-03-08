@@ -29,9 +29,12 @@ function create(req,res){
 function show(req,res){
   Anime.findById(req.params.id)
   .populate('owner')
+  .populate('reviews.author')
+  //console.log('user.profile.name')
   .then(anime=>{
     res.render('animes/show', {
       anime,
+      
       title:'show',
     })
   })
@@ -94,10 +97,30 @@ function deleteAnime(req,res){
 
 function createReview(req,res){
   Anime.findById(req.params.id)
+  //.populate('owner')
   .then(anime=>{
+    req.body.author = req.user.profile._id
+    console.log("posted by", req.body.author)
     anime.reviews.push(req.body)
     anime.save()
     .then(() => {
+      res.redirect(`/animes/${anime._id}`)
+    })
+  })
+  .catch(err =>{
+    console.log(err)
+    res.redirect('/animes')
+  })
+}
+
+function deleteReview(req,res){
+  Anime.findById(req.params.id)
+  .then(anime =>{
+    const id = req.params.reviewId
+    const index = anime.reviews.indexOf(id)
+    anime.reviews.splice(index,1)
+    anime.save()
+    .then(()=> {
       res.redirect(`/animes/${anime._id}`)
     })
   })
@@ -115,6 +138,7 @@ export {
   update,
   deleteAnime as delete,
   createReview,
+  deleteReview,
 
 
 }

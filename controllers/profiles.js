@@ -16,6 +16,7 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate('reviews')
   .then((profile) => {
     Profile.findById(req.user.profile._id)
     .then(self => {
@@ -32,6 +33,7 @@ function show(req, res) {
     res.redirect("/")
   })
 }
+
 
 export {
   index,
