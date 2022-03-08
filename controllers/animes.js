@@ -1,4 +1,5 @@
 import { Anime } from '../models/anime.js'
+import { Profile } from '../models/profile.js' 
 
 function index(req,res){
   Anime.find({})
@@ -29,12 +30,15 @@ function create(req,res){
 function show(req,res){
   Anime.findById(req.params.id)
   .populate('owner')
-  .populate('reviews.author')
-  //console.log('user.profile.name')
+  //.populate('reviews')
+  //.populate('reviews.author')
+  .populate({path:"reviews.author", select:"name"})
+
   .then(anime=>{
+    //console.log('ANIME OWNER IS!!!!!!!!', anime.owner)
+    //console.log('REVIEW AUTHOR IS!!!!!!!!!!!!', anime.reviews.author)
     res.render('animes/show', {
       anime,
-      
       title:'show',
     })
   })
@@ -94,13 +98,20 @@ function deleteAnime(req,res){
     res.redirect('/animes')
   })
 }
-
-function createReview(req,res){
-  Anime.findById(req.params.id)
+//Profile.findById(req.user.profile._id)
   //.populate('owner')
+  // .then(profile=>{
+  //   //req.body.author = req.user.profile._id
+  //   profile.reviews.push(req.body)
+  //   profile.save()
+  // })
+function createReview(req,res){
+  //req.body.author = req.user.profile._id
+  Anime.findById(req.params.id)
+  
   .then(anime=>{
     req.body.author = req.user.profile._id
-    console.log("posted by", req.body.author)
+    //console.log("POSTED BY !!!!!!!!!!!!!!!!!!!", req.body.author)
     anime.reviews.push(req.body)
     anime.save()
     .then(() => {

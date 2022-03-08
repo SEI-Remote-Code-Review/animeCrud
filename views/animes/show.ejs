@@ -46,10 +46,11 @@
   <% } %>
   <% if (anime.reviews.length) {%>
     <% anime.reviews.forEach(function(review) {%> 
-    <h3><%= review.author %> posted on <%=review.createdAt.toLocaleDateString()%></h3>
+    <h3><%= review.author.name %> posted on <%=review.createdAt.toLocaleDateString()%></h3>
+    <% console.log(review.author) %> 
     <h4><%= review.score %> / 5 </h4>
     <p><%= review.pageReviews %></p>
-    <% if (anime.owner.equals(user?.profile._id)) {%>
+    <% if (review.author.equals(user?.profile._id)) {%>
       <form action="/animes/<%= anime._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete Post</button>
       </form>
