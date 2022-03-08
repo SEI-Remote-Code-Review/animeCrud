@@ -19,6 +19,11 @@ function create(req,res){
   req.body.owner = req.user.profile._id
   Anime.create(req.body)
   .then(anime=>{
+    Profile.findById(req.user.profile._id)
+    .then(profile=> {
+      profile.anime.push(anime._id)
+      profile.save
+    })
     res.redirect('/animes')
   })
   .catch(err =>{
@@ -111,7 +116,6 @@ function createReview(req,res){
   
   .then(anime=>{
     req.body.author = req.user.profile._id
-    //console.log("POSTED BY !!!!!!!!!!!!!!!!!!!", req.body.author)
     anime.reviews.push(req.body)
     anime.save()
     .then(() => {
