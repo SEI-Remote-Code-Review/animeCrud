@@ -15,6 +15,14 @@ function index(req,res){
   })
 }
 
+function newAnime(req,res){
+    res.render('animes/new', {
+      title:'New Anime'
+  })
+}
+
+
+
 function create(req,res){
   req.body.owner = req.user.profile._id
   Anime.create(req.body)
@@ -152,6 +160,7 @@ function deleteReview(req,res){
 
 export {
   index,
+  newAnime as new,
   create,
   show,
   edit,

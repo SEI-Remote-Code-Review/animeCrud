@@ -1,0 +1,44 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	<h1>Add Anime</h1>
+  <% if (user) {%>
+    <h2>Add an Anime to the list</h2>
+    <form action ="/animes" method="POST">
+      <label>
+        Title:
+        <input type="text" name="mainTitle">
+      </label>
+      <label>
+        Image URL:
+        <input type="text" name="imageURL">
+      </label>
+      <label>
+        Studio:
+        <input type="text" name="studio">
+      </label>
+      <label>
+        Year Aired:
+        <input type="number" name="yearAired">
+      </label>
+      <label>
+        Season Aired:
+        <select name="seasonAired">
+          <option value="Winter" selected>Winter</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+        </select>
+      </label>
+      <label>
+        <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series"></textarea>
+      </label>
+      <button type="submit">Add Anime</button>
+    </form> 
+    <% } %> 
+
+
+</section>
+
+<%- include('../partials/footer') %>
