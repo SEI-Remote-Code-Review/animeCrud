@@ -1,46 +1,33 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
 
+<%- include('../partials/nav') %>
+<!-- style="max-width: 640px;" -->
 <section>
   <h1>Anime List</h1>
-  <% if (user) {%>
-    <h2>Add an Anime to the list</h2>
-    <form action ="/animes" method="POST">
-      <label>
-        Title:
-        <input type="text" name="mainTitle">
-      </label>
-      <label>
-        Image URL:
-        <input type="text" name="imageURL">
-      </label>
-      <label>
-        Studio:
-        <input type="text" name="studio">
-      </label>
-      <label>
-        Year Aired:
-        <input type="number" name="yearAired">
-      </label>
-      <label>
-        Season Aired:
-        <select name="seasonAired">
-          <option value="Winter" selected>Winter</option>
-          <option value="Spring">Spring</option>
-          <option value="Summer">Summer</option>
-          <option value="Fall">Fall</option>
-        </select>
-      </label>
-      <label>
-        <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series"></textarea>
-      </label>
-      <button type="submit">Add Anime</button>
-    </form> 
-    <% } %> 
   <h2>Check out these Anime</h2>
-	<div class="row">
+  
+	<div class="row" data-masonry='{"percentPosition": true }'>
+    <!-- <div class="col-12 col-md-6 col-lg-3"> -->
   <% animes.forEach(anime => { %>
-    <div class="col-md-2">
+    <div class="card mb-3 overflow-auto" style="max-width: 40rem;">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="<%= anime.imageURL %>"  class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
+            <p class="card-text"><%= anime.description.slice(0,300).padEnd(303, '...') %>  </p>
+            <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
+          </div>
+          <div class="card-footer">
+            <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
+          </div>
+        </div>
+    </div>
+    </div>
+    <!-- <div class="col-md-2">
       <div class="card overflow-auto" style="width: 18rem; height: 36rem">
         <img src="<%= anime.imageURL %>"  class="card-img-top" alt="...">
         <div class="card-body">
@@ -48,14 +35,23 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
           <p class="card-text"><%= anime.description %>  </p>
           <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
+        </div>
+        <div class="card-footer">
           <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
+
         </div>
       </div>
-    </div>
+    </div> -->
+    
+      
   <% }) %>
-  </div>
+<!-- </div> -->
+</div>
+  
   
   
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 
 <%- include('../partials/footer') %>

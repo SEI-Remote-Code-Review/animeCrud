@@ -8,7 +8,7 @@
     <form action ="/animes" method="POST">
       <label>
         Title:
-        <input type="text" name="mainTitle">
+        <input type="text" name="mainTitle" required>
       </label>
       <label>
         Image URL:
@@ -16,11 +16,11 @@
       </label>
       <label>
         Studio:
-        <input type="text" name="studio">
+        <input type="text" name="studio" required>
       </label>
       <label>
         Year Aired:
-        <input type="number" name="yearAired">
+        <input type="number" name="yearAired" required pattern="[1945-2077]\d?" required>
       </label>
       <label>
         Season Aired:

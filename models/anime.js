@@ -10,6 +10,8 @@ const reviewSchema = new Schema ({
   timestamps:true
 })
 
+
+
 const animeSchema = new Schema({
   mainTitle:String,
   imageURL:String,

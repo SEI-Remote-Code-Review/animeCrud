@@ -21,7 +21,7 @@ function show(req, res) {
   //.populate('reviews')
   .then((profile) => {
     Anime.find({_id: {$nin: profile.animes}}, function(error,animes){
-    console.log('This is PROFILE.ANIMES!!!!', profile.animes)
+    //console.log('This is PROFILE.ANIMES!!!!', profile.animes)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
