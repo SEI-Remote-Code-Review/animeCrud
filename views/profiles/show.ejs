@@ -14,7 +14,7 @@
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
   <h2>Animes posted: </h2>
   <% profile.animes.forEach(anime => { %>
-    <h4> <%= anime._id %> </h4>
+    <h4><a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %>  </a></h4>
   <% }) %>  
 </main>
 

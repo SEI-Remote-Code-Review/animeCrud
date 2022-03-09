@@ -89,6 +89,13 @@ function deleteAnime(req,res){
   .then(anime=>{
     if(anime.owner.equals(req.user.profile._id)){
       anime.delete()
+      Profile.findById(req.user.profile._id)
+      .then(profile => {
+        const id = req.params.id
+        const index = profile.animes.indexOf(id)
+        profile.animes.splice(index, 1)
+        profile.save()
+      })
       .then(() => {
         res.redirect('/animes')
       })
