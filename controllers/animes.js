@@ -21,8 +21,8 @@ function create(req,res){
   .then(anime=>{
     Profile.findById(req.user.profile._id)
     .then(profile=> {
-      profile.anime.push(anime._id)
-      profile.save
+      profile.animes.push(anime._id)
+      profile.save()
     })
     res.redirect('/animes')
   })
@@ -35,8 +35,6 @@ function create(req,res){
 function show(req,res){
   Anime.findById(req.params.id)
   .populate('owner')
-  //.populate('reviews')
-  //.populate('reviews.author')
   .populate({path:"reviews.author", select:"name"})
 
   .then(anime=>{
