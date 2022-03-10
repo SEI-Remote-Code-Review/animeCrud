@@ -7,12 +7,13 @@
   <h2>Check out these Anime</h2>
   
 	<div class="row" data-masonry='{"percentPosition": true }'>
-    <!-- <div class="col-12 col-md-6 col-lg-3"> -->
   <% animes.forEach(anime => { %>
     <div class="card mb-3" style="max-width: 40rem; padding-left: 0px;  padding-right: 0px;">
       <div class="row">
         <div class="col-md-4">
-          <img src="<%= anime.imageURL %>"  class="img-fluid rounded-start" alt="...">
+          <a href="/animes/<%= anime._id %>">
+            <img src="<%= anime.imageURL %>"  class="img-fluid rounded-start" alt="...">
+          </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -22,30 +23,13 @@
             <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
           </div>
           <div class="card-footer">
-            <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
+            <a href="/animes/<%= anime._id %>" class="btn btn-primary">More Information</a>
           </div>
         </div>
     </div>
     </div>
-    <!-- <div class="col-md-2">
-      <div class="card overflow-auto" style="width: 18rem; height: 36rem">
-        <img src="<%= anime.imageURL %>"  class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
-          <p class="card-text"><%= anime.description %>  </p>
-          <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
-        </div>
-        <div class="card-footer">
-          <a href="/animes/<%= anime._id %>" class="btn btn-primary">Join Discussion</a>
-
-        </div>
-      </div>
-    </div> -->
-    
       
   <% }) %>
-<!-- </div> -->
 </div>
   
   
