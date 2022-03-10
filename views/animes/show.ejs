@@ -2,25 +2,37 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<h2>Posted by <%= anime.owner.name %></h2>
-  <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
-  <h1><%= anime.mainTitle %></h1>
-  <h5>Studio: <%= anime.studio %> </h2>
-  <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
-  <p><%= anime.description %> </p>
-
+  
+  <h3>Posted by <%= anime.owner.name %></h3>
+  <div class="btn-group">
   <%# User Identification for edits %>
   <% if (anime.owner.equals(user?.profile._id)) { %>
     <form action="/animes/<%= anime._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this Anime</button>
+      <button class="btn btn-outline-danger" type="submit">Edit this Anime</button>
     </form>
     <%# EDIT code end %> 
     <%# DELETE code begin %>
     <form action="/animes/<%= anime._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Delete this Anime</button>
+      <button class="btn btn-outline-danger" type="submit">Delete this Anime</button>
     </form>
     <%# DELETE code end %> 
   <% } %>
+</div>
+  <div class="card lg-12" >
+    <div class="row">
+      <div class="col-md-4">
+        <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
+      </div>
+      <div class="col-md-6">
+        <h1><%= anime.mainTitle %></h1>
+        <h5>Studio: <%= anime.studio %> </h2>
+        <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
+        <p><%= anime.description %> </p>
+      </div>
+    </div>
+  </div>
+
+  
 
   <%#  %>
   <% if (user) {%>
