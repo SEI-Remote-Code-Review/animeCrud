@@ -18,7 +18,7 @@ router.get(
 
 router.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('/')
+  res.redirect('/animes')
 })
 
 export {

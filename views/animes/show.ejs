@@ -7,19 +7,19 @@
   <%# User Identification for edits %>
   <% if (anime.owner.equals(user?.profile._id)) { %>
     <form action="/animes/<%= anime._id %>/edit" method="GET">
-      <button class="btn btn-outline-warning" type="submit">Edit this Anime</button>
+      <button class="btn btn-warning" type="submit">Edit this Anime</button>
     </form>
     <%# EDIT code end %> 
     <%# DELETE code begin %>
     <form action="/animes/<%= anime._id %>?_method=DELETE" method="POST">
-      <button class="btn btn-outline-danger" type="submit">Delete this Anime</button>
+      <button class="btn btn-danger" type="submit">Delete this Anime</button>
     </form>
     <%# DELETE code end %> 
   <% } %>
 </div>
   <div class="card mb-6" >
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
       </div>
       <div class="col-md-6">
@@ -52,7 +52,7 @@
         <textarea name="pageReviews" rows="10" cols="30" placeholder="Write a review here" required></textarea>
       </label>
     </div>
-      <button type="submit">Add Review</button>
+      <button class="btn btn-primary" type="submit">Add Review</button>
     </form>
     
   <% } %>
@@ -67,10 +67,10 @@
           <p><%= review.pageReviews %></p>
         </div>
         <%# User Identification for delete review %>
-        <div class="card-footer text-end">
+        <div class="text-end">
         <% if (review.author.equals(user?.profile._id)) {%>
           <form action="/animes/<%= anime._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-          <button class="btn btn-outline-danger" type="submit">Delete Post</button>
+          <button class="btn btn-danger" type="submit">Delete Post</button>
           </form>
         <% } %>
         </div>

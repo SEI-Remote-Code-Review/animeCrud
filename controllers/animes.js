@@ -48,7 +48,7 @@ function show(req,res){
     //console.log('REVIEW AUTHOR IS!!!!!!!!!!!!', anime.reviews.author)
     res.render('animes/show', {
       anime,
-      title:'show',
+      title:anime.mainTitle,
     })
   })
   .catch(err =>{
@@ -62,7 +62,7 @@ function edit(req,res){
   .then(anime=>{
     res.render('animes/edit', {
       anime,
-      title:'edit',
+      title:'Edit Anime',
     })
   })
   .catch(err =>{
