@@ -2,22 +2,29 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<h1>Add Anime</h1>
+	<h1>Add an Anime to the list</h1>
   <% if (user) {%>
-    <h2>Add an Anime to the list</h2>
+    
     <form action ="/animes" method="POST">
-      <label>
-        Title:
-        <input type="text" name="mainTitle" required>
-      </label>
-      <label>
-        Image URL:
-        <input type="text" name="imageURL">
-      </label>
+      <div class="form-group">
+        <label>
+          Title:
+          <input type="text" name="mainTitle" required>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Image URL:
+          <input type="text" name="imageURL">
+        </label>
+      </div>
+      <div class="form-group">
       <label>
         Studio:
         <input type="text" name="studio" required>
       </label>
+      </div>
+      <div class="form-group">
       <label>
         Year Aired:
         <input type="number" name="yearAired" pattern="[1945-2077]{4}" title="Invalid Year" required>
@@ -31,10 +38,12 @@
           <option value="Fall">Fall</option>
         </select>
       </label>
-      
+      </div>
+      <div class="form-group">
       <label>
         <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series" required></textarea>
       </label>
+    </div>
       <button type="submit">Add Anime</button>
     </form> 
     <% } %> 
