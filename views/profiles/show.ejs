@@ -12,14 +12,16 @@
     </div>
   <% } %>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-  <h2>Animes posted: </h2>
-  <% if (profile.animes.length) {%>
-  <% profile.animes.forEach(anime => { %>
-    <h4><a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %>  </a></h4>
-  <% }) %> 
-  <% } else { %>
-    <h3><%= profile.name %> has no Anime posted</h3>
-  <% } %>   
+  <div class="container">
+    <h2>Animes posted: </h2>
+    <% if (profile.animes.length) {%>
+    <% profile.animes.forEach(anime => { %>
+      <h4><a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %>  </a></h4>
+    <% }) %> 
+    <% } else { %>
+      <h3><%= profile.name %> has no Anime posted</h3>
+    <% } %>   
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

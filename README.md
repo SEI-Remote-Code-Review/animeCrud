@@ -5,7 +5,7 @@ Deployed through Heroku
 - [https://anime-collector.herokuapp.com/]
 <!-- start of description -->
 # App Info
-Anime Collector is an app that allows users to add in animes they personally enjoy or want to share. From there users can leave a review of what they thought about the show.
+Anime Collector is an app that allows users to add in animes they personally enjoy or want to share using CRUD and RESTful Architecture. From there users can leave a review of what they thought about the show.
 
 Utilizing Google OAuth2 anybody can log in using a Google Gmail to become a user on the app. A user then has the ability to post there own anime and leave a review. 
 
@@ -22,7 +22,7 @@ Utilizing Google OAuth2 anybody can log in using a Google Gmail to become a user
 
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-Mongoose , Google oAuth , Atlas? 
+Mongoose , Google oAuth , Atlas? express
 
 # Credits 
 My Anime List
