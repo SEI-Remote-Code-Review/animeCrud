@@ -19,7 +19,7 @@
           <div class="card-body">
             <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
-            <p class="card-text"><%= anime.description.slice(0,300).padEnd(303, '...') %>  </p>
+            <p class="card-text"><%= anime.description.slice(0,300) %>...  </p>
             <p class="card-text">Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
           </div>
           <div class="card-footer">
