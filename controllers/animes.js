@@ -21,8 +21,6 @@ function newAnime(req,res){
   })
 }
 
-
-
 function create(req,res){
   req.body.owner = req.user.profile._id
   Anime.create(req.body)
@@ -116,13 +114,7 @@ function deleteAnime(req,res){
     res.redirect('/animes')
   })
 }
-//Profile.findById(req.user.profile._id)
-  //.populate('owner')
-  // .then(profile=>{
-  //   //req.body.author = req.user.profile._id
-  //   profile.reviews.push(req.body)
-  //   profile.save()
-  // })
+
 function createReview(req,res){
   //req.body.author = req.user.profile._id
   Anime.findById(req.params.id)

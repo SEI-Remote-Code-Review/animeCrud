@@ -20,7 +20,7 @@
       </label>
       <label>
         Year Aired:
-        <input type="number" name="yearAired" required pattern="[1945-2077]\d?" required>
+        <input type="number" name="yearAired" pattern="[1945-2077]{4}" title="Invalid Year" required>
       </label>
       <label>
         Season Aired:
@@ -31,8 +31,9 @@
           <option value="Fall">Fall</option>
         </select>
       </label>
+      
       <label>
-        <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series"></textarea>
+        <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series" required></textarea>
       </label>
       <button type="submit">Add Anime</button>
     </form> 

@@ -10,7 +10,12 @@ const reviewSchema = new Schema ({
   timestamps:true
 })
 
-
+const threadSchema = new Schema ({
+  threadTitle:String,
+  post:String,
+},{
+  timestamps:true
+})
 
 const animeSchema = new Schema({
   mainTitle:String,
@@ -21,9 +26,8 @@ const animeSchema = new Schema({
   seasonAired:{type:String, enum:['Winter','Spring','Summer','Fall'], default:'Winter'},
   owner:{type: Schema.Types.ObjectId, ref:'Profile'},
   reviews: [reviewSchema],
-  //numEpisodes:Number,
   description:String,
-
+  
 },{
   timestamps:true
 })

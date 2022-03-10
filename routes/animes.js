@@ -17,7 +17,6 @@ router.get('/:id/edit', isLoggedIn, animesCtrl.edit)
 router.post('/', isLoggedIn, animesCtrl.create)
 
 router.post('/:id/reviews', isLoggedIn, animesCtrl.createReview)
-//router.post('/:id/reviews', isLoggedIn, animesCtrl.createReview)
 
 router.put('/:id', isLoggedIn, animesCtrl.update)
 
