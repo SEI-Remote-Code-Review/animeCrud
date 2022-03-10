@@ -2,27 +2,29 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<h1>Edit Page</h1>
-  <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
-  <h1><%= anime.mainTitle %></h1>
-  <h5>Studio: <%= anime.studio %> </h2>
-  <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
-  <p><%= anime.description %> </p>
-
-  
+	<h1>Edit Anime</h1>
+  <div class="card-group">
+  <div class="card mb-6" style=" padding-left: 0px;  padding-right: 0px;">
   <form action ="/animes/<%= anime._id %>?_method=PUT" method="POST">
+    <div class="form-group">
     <label>
       Title:
       <input type="text" name="mainTitle" value="<%= anime.mainTitle %>">
     </label>
+  </div>
+  <div class="form-group">
     <label>
       Image URL:
       <input type="text" name="imageURL" value="<%= anime.imageURL %>">
     </label>
+  </div>
+  <div class="form-group">
     <label>
       Studio:
       <input type="text" name="studio" value="<%= anime.studio %>">
     </label>
+  </div>
+  <div class="form-group">
     <label>
       Year Aired:
       <input type="number" name="yearAired" value="<%= anime.yearAired %>">
@@ -36,12 +38,42 @@
         <option value="Fall">Fall</option>
       </select>
     </label>
+  </div>
+  <div class="form-group">
     <label>
-      <textarea type="text" name="description" rows="10" cols="30"><%= anime.description %>
+      <textarea type="text" name="description" rows="20" cols="60"><%= anime.description %>
       </textarea>
     </label>
+  </div>
     <button type="submit">Edit Anime</button>
   </form> 
+</div>
+
+  <div class="card mb-6" style="max-width: 40rem; padding-left: 0px;  padding-right: 0px;">
+    <div class="row">
+      <h1>Current Layout</h1>
+      <div class="col-md-4">
+        <h2>Image URL</h2>
+          <img src="<%= anime.imageURL %>"  class="img-fluid rounded-start" alt="...">
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2>Title</h2>
+          <h5 class="card-title"> <%= anime.mainTitle %>  </h5>
+          <h2>Studio</h2>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= anime.studio %> </h6>
+          <h2>Description</h2>
+          <p class="card-text"> <%= anime.description %>  </p>
+          <h2>Year Aired - Season Aired</h2>
+          <p class="card-text"> Aired <%= anime.seasonAired %> <%= anime.yearAired %></p>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+  
+  
 
 
 </section>

@@ -8,14 +8,14 @@
   
 	<div class="row" data-masonry='{"percentPosition": true }'>
   <% animes.forEach(anime => { %>
-    <div class="card mb-3" style="max-width: 40rem; padding-left: 0px;  padding-right: 0px;">
+    <div class="card mb-3" style="max-width: 40rem; padding-left: 0px; padding-right: 0px;">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 bg-light" style="max-width: 40rem; padding-left: 1px; padding-right: 1px;">
           <a href="/animes/<%= anime._id %>">
             <img src="<%= anime.imageURL %>"  class="img-fluid rounded-start" alt="...">
           </a>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style=" padding-left: 0px;">
           <div class="card-body">
             <h5 class="card-title"> <a href="/animes/<%= anime._id %>"> <%= anime.mainTitle %> </a> </h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= anime.studio %> </h6>
