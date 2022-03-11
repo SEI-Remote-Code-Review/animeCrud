@@ -10,24 +10,29 @@
       <div class="form-group">
         <label>
           Title:
-        </label><br>
-        <input type="text" name="mainTitle" required>
+          <br>
+          <input type="text" name="mainTitle" required>
+        </label>
+        
       </div>
       <div class="form-group">
         <label>
           Image URL:
+          <br>
           <input type="text" name="imageURL" placeholder="Image HTTP Address">
         </label>
       </div>
       <div class="form-group">
       <label>
         Studio:
+        <br>
         <input type="text" name="studio" required>
       </label>
       </div>
       <div class="form-group">
       <label>
         Year Aired:
+        <br>
         <input type="text" name="yearAired" placeholder="XXXX" required pattern=^(19|20)\d{2}$ required>
       </label>
       <label>
@@ -45,7 +50,7 @@
         <textarea name="description" rows="10" cols="30" placeholder="Write a description of the series" required></textarea>
       </label>
     </div>
-      <button type="submit">Add Anime</button>
+      <button class="btn btn-primary" type="submit">Add Anime</button>
     </form> 
     <% } %> 
 
