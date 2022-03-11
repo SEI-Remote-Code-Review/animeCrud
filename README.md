@@ -1,5 +1,5 @@
 # Anime-Collector
-![picture of index](put image here)
+![picture of splash page](https://i.imgur.com/nMZJD9V.png)
 # Link to deployed app 
 Deployed through Heroku
 - [https://anime-collector.herokuapp.com/]
@@ -35,6 +35,8 @@ Bootstrap
 [https://getbootstrap.com/]<br>
 Masonry
 [https://masonry.desandro.com/]<br>
+Gradient maker
+[https://cssgradient.io/]<br>
 
 # Ice Box / Stretch Goals
 - [ ] Search Bar
