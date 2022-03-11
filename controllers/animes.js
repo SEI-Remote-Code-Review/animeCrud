@@ -44,8 +44,6 @@ function show(req,res){
   .populate({path:"reviews.author", select:"name"})
 
   .then(anime=>{
-    //console.log('ANIME OWNER IS!!!!!!!!', anime.owner)
-    //console.log('REVIEW AUTHOR IS!!!!!!!!!!!!', anime.reviews.author)
     res.render('animes/show', {
       anime,
       title:anime.mainTitle,
@@ -116,7 +114,6 @@ function deleteAnime(req,res){
 }
 
 function createReview(req,res){
-  //req.body.author = req.user.profile._id
   Anime.findById(req.params.id)
   
   .then(anime=>{
@@ -132,7 +129,6 @@ function createReview(req,res){
     res.redirect('/animes')
   })
 }
-
 
 function deleteReview(req,res){
   Anime.findById(req.params.id)

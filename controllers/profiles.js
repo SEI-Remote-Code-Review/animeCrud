@@ -18,10 +18,8 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .populate('animes')
-  //.populate('reviews')
   .then((profile) => {
     Anime.find({_id: {$nin: profile.animes}}, function(error,animes){
-    //console.log('This is PROFILE.ANIMES!!!!', profile.animes)
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
@@ -32,8 +30,8 @@ function show(req, res) {
         animes:animes,
       })
     })
-    })
   })
+})
   .catch((err) => {
     console.log(err)
     res.redirect("/")
