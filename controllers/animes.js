@@ -133,11 +133,14 @@ function createReview(req,res){
   })
 }
 
+
 function deleteReview(req,res){
   Anime.findById(req.params.id)
   .then(anime =>{
     const id = req.params.reviewId
-    const index = anime.reviews.indexOf(id)
+    const reviewID = anime.reviews.map(review=> review._id.toString())
+    const index = reviewID.indexOf(id)
+    
     anime.reviews.splice(index,1)
     anime.save()
     .then(()=> {
