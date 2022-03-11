@@ -1,6 +1,6 @@
 # Anime-Collector
-![picture of splash page](https://i.imgur.com/nMZJD9Vm.png)
-![picture of index list](https://i.imgur.com/u684Q74m.png)
+![picture of splash page](https://i.imgur.com/nMZJD9Vl.png)
+![picture of index list](https://i.imgur.com/u684Q74l.png)
 # Link to deployed app 
 Deployed through Heroku
 - [https://anime-collector.herokuapp.com/]
