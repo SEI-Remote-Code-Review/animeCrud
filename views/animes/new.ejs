@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/animes/forms.css" />
 <%- include('../partials/nav') %>
 
-<section>
+<section class="titleArea">
 	<h1>Add an Anime to the list</h1>
   <% if (user) {%>
     
@@ -16,7 +16,7 @@
       <div class="form-group">
         <label>
           Image URL:
-          <input type="text" name="imageURL" placeholder="Image Address">
+          <input type="text" name="imageURL" placeholder="Image HTTP Address">
         </label>
       </div>
       <div class="form-group">
@@ -28,7 +28,7 @@
       <div class="form-group">
       <label>
         Year Aired:
-        <input type="number" name="yearAired" required pattern=^(19|20)\d{2}$ required>
+        <input type="text" name="yearAired" placeholder="XXXX" required pattern=^(19|20)\d{2}$ required>
       </label>
       <label>
         Season Aired:
@@ -48,7 +48,6 @@
       <button type="submit">Add Anime</button>
     </form> 
     <% } %> 
-
 
 </section>
 

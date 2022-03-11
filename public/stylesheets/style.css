@@ -64,12 +64,20 @@ main {
   flex-direction: column;
 }
 
+.titleArea{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 h1 {
   font-size: 3.6rem;
 }
 
 img{
   max-width: 360px;
+  max-height: 200px;
 }
 
 .card {
@@ -79,3 +87,4 @@ img{
 .btn{
   margin:0 5px;
 }
+

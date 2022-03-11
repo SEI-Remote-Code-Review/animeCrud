@@ -19,10 +19,10 @@
 </div>
   <div class="card mb-6" >
     <div class="row">
-      <div class="col-md-6">
-        <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %>>
+      <div class="col-md-3">
+        <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %> onerror="this.src='https://i.imgur.com/s4dTtByl.jpg'">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <h1><%= anime.mainTitle %></h1>
         <h5>Studio: <%= anime.studio %> </h2>
         <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
@@ -33,6 +33,7 @@
 
   <%# reviews section %>
   <% if (user) {%>
+    <div class="titleArea">
     <h2>Add a Review</h2>
     <form class="form-group" action="/animes/<%= anime._id %>/reviews" method="POST">
       <div class="form-group">
@@ -49,12 +50,12 @@
     </div>
     <div class="form-group">
       <label>
-        <textarea name="pageReviews" rows="10" cols="30" placeholder="Write a review here" required></textarea>
+        <textarea name="pageReviews" rows="10" cols="60" placeholder="Write a review here" required></textarea>
       </label>
     </div>
       <button class="btn btn-primary" type="submit">Add Review</button>
     </form>
-    
+    </div>
   <% } %>
   <% if (anime.reviews.length) {%>
     <% anime.reviews.forEach(function(review) {%> 

@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
 
 <%- include('../partials/nav') %>
-<!-- style="max-width: 640px;" -->
-<section>
+
+<div class="titleArea">
   <h1>Anime List</h1>
   <h2>Check out these Anime</h2>
-  
+</div>
+<section>
 	<div class="row" data-masonry='{"percentPosition": true }'>
   <% animes.forEach(anime => { %>
     <div class="card mb-3" style="max-width: 40rem; padding-right: 0px;">
