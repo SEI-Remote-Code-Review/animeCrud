@@ -3,11 +3,11 @@
   <% } %>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
     <a href="/animes">Anime List</a>
-    <a href="/profiles">👤 Profile List</a>
-    <a href="/animes/new">⨁ Add Anime</a>
+    <a href="/profiles">👤 <span class="hide">Profile List</span></a>
+    <a href="/animes/new">⨁ <span class="hide">Add Anime</span></a>
     <% if (user) { %>
     
       <a href="/auth/logout">
