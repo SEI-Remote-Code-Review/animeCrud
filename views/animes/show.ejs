@@ -1,0 +1,87 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/animes/img.css" />
+<%- include('../partials/nav') %>
+
+<section>
+  <h3>Posted by <%= anime.owner.name %></h3>
+  <div class="btn-group">
+  <%# User Identification for edits %>
+  <% if (anime.owner.equals(user?.profile._id)) { %>
+    <form action="/animes/<%= anime._id %>/edit" method="GET">
+      <button class="btn btn-warning" type="submit">Edit this Anime</button>
+    </form>
+    <%# EDIT code end %> 
+    <%# DELETE code begin %>
+    <form action="/animes/<%= anime._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-danger" type="submit">Delete this Anime</button>
+    </form>
+    <%# DELETE code end %> 
+  <% } %>
+</div>
+  <div class="card mb-6" >
+    <div class="row">
+      <div class="col-md-3">
+        <img src=<%= anime.imageURL %> alt=<%= anime.mainTitle %> onerror="this.src='https://i.imgur.com/s4dTtByl.jpg'">
+      </div>
+      <div class="col-md-8">
+        <h1><%= anime.mainTitle %></h1>
+        <h5>Studio: <%= anime.studio %> </h2>
+        <h5>Aired <%= anime.seasonAired %> <%= anime.yearAired %> </h5>
+        <p><%= anime.description %> </p>
+      </div>
+    </div>
+  </div>
+
+  <%# reviews section %>
+  <% if (user) {%>
+    <div class="titleArea">
+    <h2>Add a Review</h2>
+    <form class="form-group" action="/animes/<%= anime._id %>/reviews" method="POST">
+      <div class="form-group">
+      <label>
+        Score:
+        <select name="score" required>
+          <option value=1>1 - Terrible</option>
+          <option value=2>2</option>
+          <option value=3 selected>3</option>
+          <option value=4>4</option>
+          <option value=5>5 - Great</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        <textarea name="pageReviews" rows="10" cols="60" placeholder="Write a review here" required></textarea>
+      </label>
+    </div>
+      <button class="btn btn-primary" type="submit">Add Review</button>
+    </form>
+    </div>
+  <% } %>
+  <% if (anime.reviews.length) {%>
+    <% anime.reviews.forEach(function(review) {%> 
+      <div class = "card">
+        <div class="card-header">
+          <h4><%= review.author.name %> posted on <%=review.createdAt.toLocaleDateString()%></h4>
+        </div>
+        <div class="card-body">
+          <h5><%= review.score %> / 5 </h5>
+          <p><%= review.pageReviews %></p>
+        </div>
+        <%# User Identification for delete review %>
+        <div class="text-end">
+        <% if (review.author.equals(user?.profile._id)) {%>
+          <form action="/animes/<%= anime._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-danger" type="submit">Delete Post</button>
+          </form>
+        <% } %>
+        </div>
+      </div>
+    <% }) %> 
+  <% } else { %>
+    <h3>No Posts Yet</h3>
+  <% } %>  
+    
+</section>
+
+<%- include('../partials/footer') %>

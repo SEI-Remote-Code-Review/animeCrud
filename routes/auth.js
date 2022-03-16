@@ -11,14 +11,14 @@ router.get(
 router.get(
   '/google/oauth2callback',
   passport.authenticate('google', {
-    successRedirect: '/',
+    successRedirect: '/animes',
     failureRedirect: '/auth/google',
   })
 )
 
 router.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('/')
+  res.redirect('/animes')
 })
 
 export {

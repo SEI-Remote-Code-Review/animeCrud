@@ -1,70 +1,44 @@
-# MEN Stack with OAuth Template
+# Anime-Collector
+![picture of splash page](https://i.imgur.com/nMZJD9Vl.png)
+![picture of index list](https://i.imgur.com/u684Q74l.png)
+# Link to deployed app 
+Deployed through Heroku
+- [https://anime-collector.herokuapp.com/]
+<!-- start of description -->
+# App Info
+Anime Collector is an app that allows users to add in animes they personally enjoy or want to share following CRUD operations to store data onto a database. Users can then leave a review of what they thought about a anime that has been posted. 
 
-This is a MEN Stack template that includes OAuth.
+Utilizing Google OAuth2 anybody can log in using a Google Gmail to become a user on the app. A user then has the ability to post there own anime and leave a review. It was built following RESTful archictecture to make it have CRUD capabilities.
 
-Use this to go build things! 🚀
+# Technologies Used 
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/><img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/>
 
-## To Use This Template
+<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/><img src="https://img.shields.io/badge/-Mongoose-inactive?logo=MongoDB&logoColor=white&style=flat-square"/><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/><img src="https://img.shields.io/badge/Express.js-404D59?style=flat-square)"/>
 
-__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
 
-Once you are in the project directory:
+# Credits 
+My Anime List
+[https://myanimelist.net/]<br>
+Anime News Network
+[https://www.animenewsnetwork.com/]<br>
+Bootstrap
+[https://getbootstrap.com/]<br>
+Masonry
+[https://masonry.desandro.com/]<br>
+Gradient maker
+[https://cssgradient.io/]<br>
 
-```bash
-rm -rf .git
-```
+# Ice Box / Stretch Goals
+- [ ] Search Bar
+- [ ] Review Avg or Metacritic
+- [ ] Episodes
+- [ ] Episode discussion page
+- [ ] More links for navigation / offsite sources
+- [ ] Light/Dark mode
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+# Design & Planning
+Planning through Trello
+[https://trello.com/b/G8YbZu8p/animecrud]
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
-
-Re-initialize a git repository:
-
-```bash
-git init
-```
-Use whatever method you'd like to get your project on GitHub. If you're looking for speed though use the GitHub CLI to create a new project repository on GitHub:
-
-```bash
-gh repo create <name-of-your-app-here> --public --source .
-```
-Check out the docs [here](https://cli.github.com/manual/gh_repo_create) if you want to learn more about this command. 
-
-Run npm i to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a .env file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CALLBACK=http://localhost:3000/auth/google/oauth2callback
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
-
-Delete this README.md and finally, make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
-
-You're done!

@@ -3,10 +3,15 @@
   <% } %>
 </head>
 <body>
-  <nav>
+  <nav class="navbar sticky-top navbar-expand-lg">
+    <div class="container-fluid text-end">
+    <a href="/animes">Anime List</a>
+    <a href="/profiles">👤 <span class="hide">Profile List</span></a>
+    <a href="/animes/new">⨁ <span class="hide">Add Anime</span></a>
     <% if (user) { %>
+    
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button class="btn btn-light btn-lg" type="submit">［→ Logout</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -15,4 +20,5 @@
         </button>
       </a>
     <% } %>
+    </div>
   </nav>
